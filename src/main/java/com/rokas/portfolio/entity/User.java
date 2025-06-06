@@ -36,6 +36,9 @@ public class User {
     private LocalDateTime createdAt = LocalDateTime.now();
 
 
+    public Tenant getTenant() {
+        return this.tenant;
+    }
     public Long getId() {
         return this.id;
     }
@@ -79,5 +82,8 @@ public class User {
     public void setRole(Role role) {
         this.role = role;
     }
-    
+
+    public void setTenant(Tenant tenant) {
+        this.tenant = tenant;
+    }
 }

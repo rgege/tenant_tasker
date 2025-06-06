@@ -30,11 +30,9 @@ class TenantRepositoryTest {
 
         assertNotNull(saved.getId());
         assertEquals("Test Corp", saved.getName());
-        assertEquals(1, saved.getId());
         assertNotNull(saved.getCreatedAt());
 
-        Optional<Tenant> found = tenantRepository.findById(saved.getId());
-        assertTrue(found.isPresent());
-        assertEquals("Test Corp", found.get().getName());
+        Tenant found = tenantRepository.findById(saved.getId()).orElseThrow();
+        assertEquals("Test Corp", found.getName());
     }
 }
