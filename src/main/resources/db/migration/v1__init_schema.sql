@@ -12,5 +12,16 @@ CREATE TABLE users (
     role VARCHAR(50),
     tenant_id INTEGER REFERENCES tenant(id),
     enabled BOOLEAN DEFAULT true,
-    created_at TIMESTAMP
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE TABLE task (
+    id SERIAL PRIMARY KEY,
+    title VARCHAR(255),
+    description TEXT,
+    due_date DATE,
+    status VARCHAR(50),
+    assigned_to_id INTEGER REFERENCES users(id),
+    tenant_id INTEGER REFERENCES tenant(id),
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );

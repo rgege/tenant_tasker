@@ -37,7 +37,6 @@ public class UserRepositoryTest {
 
     private Tenant createTestTenant() {
         Tenant tenant = new Tenant();
-        tenant.setName("test_tenant");
         return tenant;
     }
 

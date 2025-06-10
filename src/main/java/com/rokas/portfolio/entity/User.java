@@ -63,6 +63,8 @@ public class User {
         return this.role;
     }
 
+
+
     public void setEmail(String email) {
         this.email = email;
     }
