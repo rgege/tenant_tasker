@@ -26,6 +26,10 @@ public class Tenant {
       this.tenantKey = tenantKey;
    }
 
+   public void setTenantKey(String tenantKey) {
+      this.tenantKey = tenantKey;
+   }
+
    public Long getId() {
       return this.id;
    }
@@ -33,7 +37,9 @@ public class Tenant {
    public String getName() {
       return this.name;
    }
-
+    public String getTenantKey() {
+      return this.tenantKey;
+    }
    public LocalDateTime getCreatedAt() {
       return this.createdAt;
    }
