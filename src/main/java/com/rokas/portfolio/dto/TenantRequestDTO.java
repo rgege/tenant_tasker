@@ -1,7 +1,8 @@
 package com.rokas.portfolio.dto;
 
+import java.util.Objects;
+
 public class TenantRequestDTO {
-    private Long id;
     private String name;
     private String tenantKey;
 
@@ -26,6 +27,15 @@ public class TenantRequestDTO {
 
     public String getTenantKey() {
         return this.tenantKey;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof TenantRequestDTO)) return false;
+        TenantRequestDTO that = (TenantRequestDTO) o;
+        return Objects.equals(name, that.name) &&
+               Objects.equals(tenantKey, that.tenantKey);
     }
 }
 

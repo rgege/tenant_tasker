@@ -29,7 +29,8 @@ public class TenantController {
         TenantResponseDTO response = new TenantResponseDTO(
             savedTenant.getId(),
             savedTenant.getName(),
-            savedTenant.getTenantKey()
+            savedTenant.getTenantKey(),
+            savedTenant.getCreatedAt()
         );
 
         return ResponseEntity.ok(response);
