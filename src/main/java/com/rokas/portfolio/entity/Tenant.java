@@ -9,7 +9,7 @@ import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
 @Entity
-@Table(name = "tennant")
+@Table(name = "tenant")
 public class Tenant {
    @Id 
    @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -20,10 +20,6 @@ public class Tenant {
 
    public void setName(String name) {
       this.name = name;
-   }
-
-   public void setIdentifier(String tenantKey) {
-      this.tenantKey = tenantKey;
    }
 
    public void setTenantKey(String tenantKey) {

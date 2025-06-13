@@ -7,23 +7,25 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.rokas.portfolio.dto.TenantRequestDTO;
-import com.rokas.portfolio.dto.TenantResponseDTO;
+import com.rokas.portfolio.dto.UserRequestDTO;
+import com.rokas.portfolio.dto.UserResponseDTO;
 import com.rokas.portfolio.service.TenantService;
+import com.rokas.portfolio.service.UserService;
 
 @RestController
-@RequestMapping("/api/tenants")
-public class TenantController {
-    
-    private final TenantService tenantService;
+@RequestMapping("/api/users")
+public class UserController {
+    private TenantService tenantService;
+    private UserService userService;
 
-    public TenantController(TenantService tenantService) {
+    public UserController(UserService userService, TenantService tenantService) {
+        this.userService = userService;
         this.tenantService = tenantService;
     }
 
     @PostMapping
-    public ResponseEntity<TenantResponseDTO> createTenant(@RequestBody TenantRequestDTO request) {
-        TenantResponseDTO created = tenantService.createTenant(request);
+    public ResponseEntity<UserResponseDTO> createUser(@RequestBody UserRequestDTO request) {
+        UserResponseDTO created = userService.createUser(request, tenantService);
         return new ResponseEntity<>(created, HttpStatus.CREATED);
     }
 }

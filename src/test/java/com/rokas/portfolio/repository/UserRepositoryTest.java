@@ -1,4 +1,4 @@
-package com.rokas.portfolio;
+package com.rokas.portfolio.repository;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
@@ -31,7 +31,7 @@ public class UserRepositoryTest {
         user.setEmail("test_email@test.com");
         user.setPassword("12345");
         user.setRole(Role.USER);
-        user.setStatus(true);
+        user.setEnabled(true);
         return user;
     }
 
@@ -47,7 +47,7 @@ public class UserRepositoryTest {
         assertNotNull(savedUser.getId());
         assertEquals("test_user", savedUser.getName());
         assertEquals("test_email@test.com", savedUser.getEmail());
-        assertTrue(savedUser.getStatus());
+        assertTrue(savedUser.getEnabled());
         assertNotNull(savedUser.getCreatedAt());
 
         User found = userRepository.findById(savedUser.getId()).orElseThrow();

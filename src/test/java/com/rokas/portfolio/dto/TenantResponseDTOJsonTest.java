@@ -19,30 +19,20 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 import jakarta.transaction.Transactional;
 
-@SpringBootTest
+@JsonTest
 @AutoConfigureJsonTesters
-@Transactional
 public class TenantResponseDTOJsonTest {
 
     @Autowired
     private JacksonTester<TenantResponseDTO> json;
 
-    @Autowired
-    private TenantRepository tenantRepository;
-
     @Test
     void TenantResponseDTOSerializationTest() throws IOException {
-        Tenant tenant = new Tenant();
-        tenant.setName("test_name");
-        tenant.setTenantKey("test_key");
-
-        Tenant saved = tenantRepository.save(tenant);
-
         TenantResponseDTO dto = new TenantResponseDTO(
-            saved.getId(),
-            saved.getName(),
-            saved.getTenantKey(),
-            saved.getCreatedAt()
+            1L,
+            "test_name",
+            "test_key",
+            LocalDateTime.now()
         );
         
         var jsonOut = json.write(dto);

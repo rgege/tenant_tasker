@@ -51,7 +51,7 @@ public class User {
         return this.email;
     }
 
-    public Boolean getStatus() {
+    public Boolean getEnabled() {
         return this.enabled;
     }
 
@@ -69,7 +69,7 @@ public class User {
         this.email = email;
     }
 
-    public void setStatus(Boolean bool) {
+    public void setEnabled(Boolean bool) {
         this.enabled = bool;
     }
 
