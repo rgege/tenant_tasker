@@ -5,7 +5,6 @@ import org.springframework.stereotype.Service;
 
 import com.rokas.portfolio.dto.UserRequestDTO;
 import com.rokas.portfolio.dto.UserResponseDTO;
-import com.rokas.portfolio.entity.Tenant;
 import com.rokas.portfolio.entity.User;
 import com.rokas.portfolio.enums.Role;
 import com.rokas.portfolio.repository.UserRepository;

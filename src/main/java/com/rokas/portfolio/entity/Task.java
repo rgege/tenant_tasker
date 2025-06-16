@@ -83,8 +83,8 @@ public class Task {
       this.description = description;
    }
 
-   public void setDueDate(int year, int month, int day) {
-      this.dueDate = LocalDate.of(year, month, day);
+   public void setDueDate(LocalDate dueDate) {
+      this.dueDate = dueDate;
    }
 
    public void setTaskStatus(TaskStatus status) {

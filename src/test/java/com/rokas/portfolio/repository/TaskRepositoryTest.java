@@ -32,11 +32,13 @@ public class TaskRepositoryTest {
     @Autowired
     TenantRepository tenantRepository;
 
+    LocalDate date = LocalDate.of(2025, 12, 31);
+
     private Task createTestTask() {
         Task task = new Task();
         task.setTitle("test_title");
         task.setDescription("test_description");
-        task.setDueDate(2025, 12, 31);
+        task.setDueDate(date);
         task.setTaskStatus(TaskStatus.ASSIGNED);
 
         return task;
@@ -60,7 +62,6 @@ public class TaskRepositoryTest {
         assertEquals("test_title", savedTask.getTitle());
         assertEquals("test_description", savedTask.getDescription());
 
-        LocalDate date = LocalDate.of(2025, 12, 31);
         assertEquals(date, savedTask.getDueDate());
 
         TaskStatus taskStatus = TaskStatus.ASSIGNED;
