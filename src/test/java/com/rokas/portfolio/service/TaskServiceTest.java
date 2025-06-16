@@ -73,6 +73,5 @@ public class TaskServiceTest {
         assertThat(response.userName()).isEqualTo("test_userName");
         assertThat(response.createdAt()).isNotNull();
         verify(taskRepository).save(any(Task.class));
-
     }
 }

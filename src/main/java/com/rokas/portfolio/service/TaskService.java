@@ -28,7 +28,7 @@ public class TaskService {
          this.userRepository = userRepository;
     }
 
-    TaskResponseDTO createTask(TaskRequestDTO request) {
+    public TaskResponseDTO createTask(TaskRequestDTO request) {
         Tenant tenant = tenantService.getCurrentTenant();
 
         Task task = new Task();
