@@ -14,7 +14,7 @@ import com.rokas.portfolio.service.TaskService;
 import com.rokas.portfolio.service.TenantService;
 
 @RestController
-@RequestMapping("/api/task")
+@RequestMapping("/api/tasks")
 public class TaskController {
     private final TaskService taskService;
     //private final TenantService tenantService;

@@ -64,7 +64,7 @@ public class TaskControllerTest {
 
     when(taskService.createTask(any(TaskRequestDTO.class))).thenReturn(response);
 
-    mockMvc.perform(post("/api/task")
+    mockMvc.perform(post("/api/tasks")
                 .contentType(MediaType.APPLICATION_JSON)
                 .content(objectMapper.writeValueAsString(request)))
                 .andExpect(status().isCreated()) // checks for 201

@@ -11,7 +11,6 @@ import org.springframework.test.context.bean.override.mockito.MockitoBean;
 import org.springframework.test.web.servlet.MockMvc;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 import static org.mockito.Mockito.when;
@@ -29,9 +28,6 @@ public class UserTenantControllerTest {
 
     @Test
     public void testListUsers() throws Exception {
-        Tenant tenant = new Tenant();
-        tenant.setTenantKey("test_key");
-
         User user1 = new User();
         user1.setName("Alice");
         user1.setEmail("alice@example.com");
@@ -39,14 +35,13 @@ public class UserTenantControllerTest {
         User user2 = new User();
         user2.setName("Bob");
         user2.setEmail("bob@example.com");
-        // Arrange - prepare mock data
+        
         List<User> mockUsers = new ArrayList<>();
         mockUsers.add(user1);
         mockUsers.add(user2);
 
         when(userTenantService.listAllUsersUnderTenant()).thenReturn(mockUsers);
 
-        // Act & Assert - perform POST and check response JSON
         mockMvc.perform(get("/api/users")
                 .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk())

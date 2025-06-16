@@ -28,7 +28,7 @@ public class UserTenantServiceTest {
     @InjectMocks
     private UserTenantService userTenantService;
 
-     @Test
+    @Test
     void shouldReturnListOfUsersUnderTenant() {
         // Arrange
         Tenant tenant = new Tenant();
@@ -47,15 +47,12 @@ public class UserTenantServiceTest {
         when(tenantService.getCurrentTenant()).thenReturn(tenant);
         when(userRepository.findByTenant_TenantKey("tenant_key")).thenReturn(expectedUsers);
 
-        // Act
         List<User> result = userTenantService.listAllUsersUnderTenant();
 
-        // Assert
         assertThat(result).hasSize(2);
         assertThat(result.get(0).getName()).isEqualTo("Alice");
         assertThat(result.get(1).getEmail()).isEqualTo("bob@example.com");
 
-        // Verify interactions
         verify(tenantService).getCurrentTenant();
         verify(userRepository).findByTenant_TenantKey("tenant_key");
     }
